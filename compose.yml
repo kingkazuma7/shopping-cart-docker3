@@ -20,16 +20,17 @@ services:
       - php-db
   php-db:
     image: mysql:8.0
+    #host=run-php-db
     container_name: run-php-db
     ports:
       - "3307:3306"
-    # コンテナの環境変数を指定できる
+    # コンテナの環境変数を指定できる (新規で以下生成できる)
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=test
       - MYSQL_PASSWORD=test
       - MYSQL_DATABASE=test_db
-    # DBの永続化のボリュームも指定できる
+    # DBの永続化のボリュームも指定できる (sql/ここに置くと実行できる)
     volumes:
       - ./mysql/initdb.d:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
