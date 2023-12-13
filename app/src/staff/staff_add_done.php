@@ -21,12 +21,12 @@ try {
   $staff_pass = $post['pass'];
   
   // DB接続
-  $dsn = 'mysql:dbname=test_db;host=run-php-db;';
+  $dsn = 'mysql:dbname=test_db;host=run-php-db;charset=utf8';
   $user = 'test';
   $password = 'test';
   $dbh = new PDO($dsn, $user, $password);
   
-  $sql = 'INSERT INTO users(name,password) VALUES (?,?)';
+  $sql = 'INSERT INTO mst_staff(name,password) VALUES (?,?)';
   $stmt = $dbh->prepare($sql);
   
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
