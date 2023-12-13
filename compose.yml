@@ -32,7 +32,7 @@ services:
       - MYSQL_DATABASE=test_db
     # DBの永続化のボリュームも指定できる (sql/ここに置くと実行できる)
     volumes:
-      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d:cached
       - mysql-data:/var/lib/mysql
     networks:
       - php-mysql-networks
