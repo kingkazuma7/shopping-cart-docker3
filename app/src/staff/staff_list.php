@@ -28,7 +28,7 @@ try {
   print'スタッフ一覧<br />';
   print'Staff List<br /><br />';
   
-  print'<form method="post" action="staff_edit.php">';
+  print'<form method="post" action="staff_branch.php">';
   // var_dump($stmt);
   while(true)
   {
@@ -44,8 +44,8 @@ try {
   
   // print'<input type="submit" name="disp" value="参照 Reference">';
   // print'<input type="submit" name="add" value="追加 Add">';
-  print'<input type="submit" value="修正 Edit">';
-  // print'<input type="submit" name="delete" value="削除 Delete">';
+  print'<input type="submit" name="edit" value="修正 Edit">';
+  print'<input type="submit" name="delete" value="削除 Delete">';
   print'</form>';
   
 } catch (Exception $e) {
