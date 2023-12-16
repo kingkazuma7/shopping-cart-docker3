@@ -9,7 +9,7 @@
 <?php
 try {
   // 選択されたスタッフ「コード」を受け取る
-  $staff_code=$_POST['staffcode'];
+  $staff_code = isset($_POST['staffcode']) ? $_POST['staffcode'] : null;
   
   // DB接続
   $dsn = 'mysql:dbname=test_db;host=run-php-db;charset=utf8';
@@ -25,7 +25,7 @@ try {
   $stmt->execute($data);
   
   $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-  $staff_name=$rec['name'];
+  $staff_name = isset($rec['name']) ? $rec['name'] : null;
   
   $dbh = null;
 }
@@ -39,8 +39,10 @@ catch(Exception $e)
 <!-- スタッフコードの表示 -->
 スタッフコード<br />
 <?php print $staff_code ?>
-<br><br>
-
+<br>
+<br>
+<form method="post" action="staff_edit_check.php">
+<input type="hidden" name="code" value="<?php print $staff_code ?>">
 スタッフ名 <br />
 <input type="text" name="name" value="<?php print $staff_name; ?>"><br />
 パスワードを入力してください。<br />
@@ -50,5 +52,6 @@ catch(Exception $e)
 <br>
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="OK">
+</form>
 </body>
 </html>
