@@ -42,8 +42,8 @@ try {
     print'<br />';
   }
   
-  // print'<input type="submit" name="disp" value="参照 Reference">';
-  // print'<input type="submit" name="add" value="追加 Add">';
+  print'<input type="submit" name="disp" value="参照 Reference">';
+  print'<input type="submit" name="add" value="追加 Add">';
   print'<input type="submit" name="edit" value="修正 Edit">';
   print'<input type="submit" name="delete" value="削除 Delete">';
   print'</form>';
