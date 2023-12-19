@@ -19,7 +19,7 @@ try {
   $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
   
   // スタッフ「コード」でstaffテーブルから1件のレーコードを取ってくる
-  $sql = 'SELECT name FROM mst_staff WHERE code=?';
+  $sql = 'DELETE FROM mst_staff WHERE code=?';
   $stmt = $dbh->prepare($sql);
   $data[]=$staff_code;
   $stmt->execute($data);
