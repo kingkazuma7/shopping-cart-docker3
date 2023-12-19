@@ -5,7 +5,7 @@
 <title>Yashy農園</title>
 </head>
 <body>
-  
+
 <?php
 try {
   // 選択されたスタッフ「コード」を受け取る
@@ -19,7 +19,7 @@ try {
   $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
   
   // スタッフ「コード」でstaffテーブルから1件のレーコードを取ってくる
-  $sql = 'SELECT name FROM mst_staff WHERE code=?';
+  $sql = 'DELETE FROM mst_staff WHERE code=?';
   $stmt = $dbh->prepare($sql);
   $data[]=$staff_code;
   $stmt->execute($data);
@@ -36,29 +36,11 @@ catch(Exception $e)
 }
 ?>
 
-<!-- 登録されているスタッフのデータを削除する画面 -->
-
-スタッフ削除 <br />
-Delete Staff<br />
-<br />
-<!-- スタッフコードの表示 -->
-スタッフコード<br />
-Staff #<br />
-<?php print $staff_code;?>
-<br />
-スタッフ名<br />
-<?php print $staff_name;?>
-<br />
-<br />
-このスタッフを削除してよろしいですか？<br />
-Are you sure you want to delete this staff?<br />
+削除しました。<br />
+Compleate.
 <br />
 
-<form method="post" action="staff_delete_done.php">
-<input type="hidden" name="code" value="<?php print $staff_code;?>">
-<input type="button" onclick="history.back()" value="戻る">
-<input type="submit" value="OK">
-</form>
+<a href="staff_list.php">戻る</a>
 
 </body>
 </html>
