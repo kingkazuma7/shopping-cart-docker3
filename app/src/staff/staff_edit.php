@@ -9,7 +9,7 @@
 <?php
 try {
   // 選択されたスタッフ「コード」を受け取る
-  $staff_code = isset($_POST['staffcode']) ? $_POST['staffcode'] : null;
+  $staff_code = isset($_GET['staffcode']) ? $_GET['staffcode'] : null;
   
   // DB接続
   $dsn = 'mysql:dbname=test_db;host=run-php-db;charset=utf8';
