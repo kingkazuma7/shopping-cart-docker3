@@ -59,6 +59,23 @@ if (isset($product_image)) {
     echo '<img src="' . $imageDestination . '" alt="Uploaded image">';
   }
 }
+
+// 商品名と価格が空だったら
+if ($product_name == ''||preg_match('/\A[0-9]+\z/', $product_price) == 0 || $product_image['size']> 1000000) {
+  print'<form>';
+  print'<input type="button" onclick="history.back()"value="戻る">';
+  print'</form>';
+} else {
+  print'上記の商品を追加します。<br />';
+  print'<form method="post" action="product_add_done.php">';
+  print'<input type="hidden" name="name" value="'.$product_name.'">';
+  print'<input type="hidden" name="price" value="'.$product_price.'">';
+  print'<input type="hidden" name="gazou_name" value="'.$product_image['name'].'">';
+  print'<br />';
+  print'<input type="button" onclick="history.back()" value="戻る">';
+  print'<input type="submit" value="OK">';
+  print'</form>';
+}
 ?>
 
 </body>
