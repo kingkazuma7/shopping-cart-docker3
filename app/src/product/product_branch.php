@@ -36,7 +36,7 @@ if(isset($_POST['delete']))
 {
   if(isset($_POST['procode'])) {
     $pro_code = $_POST['procode'];
-    header('Location: staff_delete.php?procode=' . $pro_code);
+    header('Location: product_delete.php?procode=' . $pro_code);
     print '削除ボタンがおされた';
   } else {
     header('Location: product_ng.php');

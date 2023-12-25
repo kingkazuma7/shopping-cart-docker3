@@ -18,7 +18,7 @@ try {
   // $product_image = isset($_FILES['image']) ? $_FILES['image'] : null;
   // $product_image = isset($_FILES['image']) ? $_FILES['image']['tmp_name'] : null;
   $product_image = $post["image"];
-  var_dump($product_image);
+  // var_dump($product_image);
 
 
   // DB接続
