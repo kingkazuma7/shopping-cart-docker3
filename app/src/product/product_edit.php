@@ -24,13 +24,25 @@ try {
   $data[] = $pro_code;
   $stmt->execute($data);
   
-  $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+  $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
+  // var_dump($rec);
   $pro_name = $rec['name'];
   $pro_price = $rec['price'];
   $pro_gazou_name_old = $rec['image'];
   
   $dbh = null;
+  
+  if($pro_gazou_name_old=='')
+  {
+    $disp_gazou='';
+  }
+  else
+  {
+    $disp_gazou='<img src="./image/'.$pro_gazou_name_old.'">';
+  }
+  
 }
+
 catch(Exception $e)
 {
   print'ただいま障害により大変ご迷惑をおかけしております。';
@@ -40,10 +52,7 @@ catch(Exception $e)
 
 <!-- 商品コードの表示 -->
 <!-- あらかじめテキストボックスにデフォルト値として、商品名を入れておく -->
-<form method="post" action="product_edit_check.php">
-<input type="hidden" name="code" value="<?php print $pro_code ?>">
-<input type="hidden" name="gazou_name_old" value="<?php print $pro_gazou_name_old; ?>">
-
+<form method="post" action="product_edit_check.php" enctype="multipart/form-data">
 商品名 <br />
 <input type="text" name="name" style="width:200px" value="<?php print $pro_name;?>"><br />
 価格<br />
@@ -53,6 +62,9 @@ catch(Exception $e)
 <br />
 画像を選んでください。<br />
 <input type="file" name="image" style="width:400px"><br />
+<br />
+<input type="hidden" name="code" value="<?php print $pro_code ?>">
+<input type="hidden" name="old_image" value="<?php print $pro_gazou_name_old; ?>">
 <br />
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="OK">
