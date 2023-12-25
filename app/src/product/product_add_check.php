@@ -14,6 +14,7 @@ $product_name = $post['name'];
 $product_price = $post['price'];
 // $product_image = $post['image'];
 $product_image = $_FILES['image'];
+var_dump($product_image['name']);
 
 if ($product_name == '')
 {
@@ -55,6 +56,7 @@ if (isset($product_image)) {
     // 画像を保存
     $imageDestination = './image/' . $imageName;
     move_uploaded_file($imageTmpName, $imageDestination);
+    // （元の保存場所、アップロード先、ファイル名）
     // 画像を表示
     echo '<img src="' . $imageDestination . '" alt="Uploaded image">';
   }
@@ -70,7 +72,7 @@ if ($product_name == ''||preg_match('/\A[0-9]+\z/', $product_price) == 0 || $pro
   print'<form method="post" action="product_add_done.php">';
   print'<input type="hidden" name="name" value="'.$product_name.'">';
   print'<input type="hidden" name="price" value="'.$product_price.'">';
-  print'<input type="hidden" name="gazou_name" value="'.$product_image['name'].'">';
+  print'<input type="hidden" name="image" value="'.$product_image['name'].'">';
   print'<br />';
   print'<input type="button" onclick="history.back()" value="戻る">';
   print'<input type="submit" value="OK">';
