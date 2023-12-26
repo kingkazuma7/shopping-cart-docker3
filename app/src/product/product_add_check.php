@@ -14,7 +14,7 @@ $product_name = $post['name'];
 $product_price = $post['price'];
 // $product_image = $post['image'];
 $product_image = $_FILES['image'];
-var_dump($product_image['name']);
+// var_dump($product_image['name']);
 
 if ($product_name == '')
 {
