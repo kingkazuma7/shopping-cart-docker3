@@ -1,5 +1,20 @@
 <?php
 
+// ログイン関数
+function start_session_and_check_login() {
+	session_start();
+	session_regenerate_id(true); // セッションハイジャック対策
+	if(isset($_SESSION['staff_name']) == false) {;
+		print'ログインされていません。<br />';
+			print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+			exit();
+	} else {
+		print $_SESSION['staff_name'];
+		print 'さんログイン中<br />';
+		print '<br />';
+		// var_dump($_SESSION['staff_name']);
+	}
+}
 
 function gengo($seireki)
 {
