@@ -1,7 +1,7 @@
 <?php
 
 // ログイン関数
-function start_session_and_check_login() {
+function session_login() {
 	session_start();
 	session_regenerate_id(true); // セッションハイジャック対策
 	if(isset($_SESSION['staff_name']) == false) {;
