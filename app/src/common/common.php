@@ -4,15 +4,26 @@
 function session_login() {
 	session_start();
 	session_regenerate_id(true); // セッションハイジャック対策
-	if(isset($_SESSION['staff_name']) == false) {;
+	if(isset($_SESSION['staff_name']) == false) {
 		print'ログインされていません。<br />';
-			print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-			exit();
+		print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+		exit();
 	} else {
 		print $_SESSION['staff_name'];
 		print 'さんログイン中<br />';
 		print '<br />';
 		// var_dump($_SESSION['staff_name']);
+	}
+}
+
+// ログイン関数 branch
+function session_login_branch() {
+	session_start();
+	session_regenerate_id(true); // セッションハイジャック対策
+	if(isset($_SESSION['login']) == false) {
+		print'ログインされていません。<br />';
+		print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+		exit();
 	}
 }
 

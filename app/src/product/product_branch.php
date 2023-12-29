@@ -1,4 +1,6 @@
 <?php
+require_once dirname(__FILE__) . '/../common/common.php';
+session_login_branch(); // login <?php>pが重複しないように
 
 if(isset($_POST['add'])==true)
 {
