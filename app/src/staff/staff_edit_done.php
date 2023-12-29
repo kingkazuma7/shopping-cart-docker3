@@ -1,6 +1,6 @@
 <?php
-session_start();
-session_regenerate_id(true);
+require_once dirname(__FILE__) . '/../common/common.php';
+start_session_and_check_login(); // login
 ?>
 
 <!DOCTYPE html>

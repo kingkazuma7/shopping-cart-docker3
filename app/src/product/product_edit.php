@@ -1,3 +1,8 @@
+<?php
+require_once dirname(__FILE__) . '/../common/common.php';
+start_session_and_check_login(); // login
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

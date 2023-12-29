@@ -1,6 +1,6 @@
 <?php
-session_start();
-session_regenerate_id(true);
+require_once dirname(__FILE__) . '/../common/common.php';
+start_session_and_check_login(); // login
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +13,6 @@ session_regenerate_id(true);
 <?php
 
 try {
-  require_once dirname(__FILE__) . '/../common/common.php';
-  
   // すたっふ名とパスワードを受け取る
   $post=sanitize($_POST);
   $staff_name = $post['name'];

@@ -1,3 +1,8 @@
+<?php
+require_once dirname(__FILE__) . '/../common/common.php';
+start_session_and_check_login(); // login
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +14,6 @@
 <?php
 
 try {
-  require_once dirname(__FILE__) . '/../common/common.php';
-  
   // すたっふ名とパスワードを受け取る
   $post=sanitize($_POST);
   $product_name = $post['name'];

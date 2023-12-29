@@ -1,17 +1,8 @@
 <?php
-session_start();
-session_regenerate_id(true); // セッションハイジャック対策
-if(isset($_SESSION['staff_name']) == false) {;
-  print'ログインされていません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-    exit();
-} else {
-  print $_SESSION['staff_name'];
-  print 'さんログイン中<br />';
-  print '<br />';
-  // var_dump($_SESSION['staff_name']);
-}
+require_once dirname(__FILE__) . '/../common/common.php';
+start_session_and_check_login(); // login
 ?>
+
 
 
 <!DOCTYPE html>
@@ -26,7 +17,7 @@ if(isset($_SESSION['staff_name']) == false) {;
 <br />
 <a href="../staff/staff_list.php">スタッフ管理</a><br />
 <br />
-<a href="../product/pro_list.php">商品管理</a><br />
+<a href="../product/product_list.php">商品管理</a><br />
 <br />
 <a href="../order/order_download.php">注文ダウンロード</a><br />
 <br />
